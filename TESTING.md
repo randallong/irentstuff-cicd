@@ -1,6 +1,8 @@
 # **Introduction to Testing in Django**
 Tests in Django run on the standard `unittest` Python module and are defined using a class-based approach. This helps to provide isolation for each test case from other test cases. The name of test files should begin with `test` and test classes should inherit from `django.test.TestCase` (which is a subclass of `unittest.TestCase`). A test is written as an assertion of the result from the method compared with a given value, e.g. `assertEquals(1+1, 2)`
 
+Official documentation from Django is available here: https://docs.djangoproject.com/en/5.0/topics/testing/overview/
+
 Tests are executed by calling:
 - `manage.py test` - searches for any file that matches the above descriptions
 - `manage.py test models` - executes all tests in a specific test file
