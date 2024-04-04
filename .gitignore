@@ -4,7 +4,7 @@ Pipfile.lock
 
 .DS_Store
 
-db.sqlite3
+*.sqlite3
 tmp/
 irentstuff/settings.py
 settings.py
