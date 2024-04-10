@@ -23,7 +23,7 @@ jobs:
         coverage run manage.py test
         coverage report
         COVERAGE_DATE=$(date +%Y%m%d)
-        COVERAGE_BRANCH=$(echo ${{ github.ref_name }}
+        COVERAGE_BRANCH=$(echo ${{ github.ref_name }})
         mkdir -p coverage_reports
         coverage html -d coverage_reports/
 
