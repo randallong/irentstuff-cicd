@@ -37,10 +37,9 @@ jobs:
       with:
         name: coverage-report-${COVERAGE_DATE}-${COVERAGE_BRANCH}
         path: coverage_reports/
-
+    
     - name: Output HTML report link
       run: |
         COVERAGE_DATE=$(date +%Y%m%d)
         COVERAGE_BRANCH=$(echo ${GITHUB_REF#refs/heads/} | sed 's#/#_#g')
-        echo "::set-output name=COVERAGE_REPORT_LINK::file://${PWD}/coverage_reports/${COVERAGE_DATE}_${COVERAGE_BRANCH}/index.html"
-        echo "HTML coverage report: [Click here](file://${PWD}/coverage_reports/${COVERAGE_DATE}_${COVERAGE_BRANCH}/index.html)"
+        echo "HTML coverage report: [Click here](${{ github.server_url }}/actions/runs/${{ github.run_id }}/artifacts/coverage-report-${COVERAGE_DATE}-${COVERAGE_BRANCH})"
