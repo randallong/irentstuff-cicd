@@ -23,7 +23,7 @@ jobs:
         coverage run manage.py test
         coverage report
         COVERAGE_DATE=$(date +%Y%m%d)
-        COVERAGE_BRANCH=$(echo ${GITHUB_REF#refs/heads/} | sed 's#/#_#g')
+        COVERAGE_BRANCH=$(echo ${{ github.ref_name }}
         mkdir -p coverage_reports
         coverage html -d coverage_reports/
 
@@ -33,8 +33,3 @@ jobs:
       with:
         name: coverage-report-${{ env.COVERAGE_DATE }}-${{ env.COVERAGE_BRANCH }}
         path: coverage_reports/
-
-    - name: Output HTML report link
-      run: |
-        echo "Coverage report id: ${{ steps.artifact-upload-step.outputs.artifact-id }}"
-        echo "Link to coverage reports: ${{ steps.artifact-upload-step.outputs.artifact-url }}"
