@@ -37,3 +37,9 @@ jobs:
       with:
         name: coverage-report-${COVERAGE_DATE}-${COVERAGE_BRANCH}
         path: coverage_reports/
+
+    - name: Output HTML report link
+      run: |
+        COVERAGE_DATE=$(date +%Y%m%d)
+        COVERAGE_BRANCH=$(echo ${GITHUB_REF#refs/heads/} | sed 's#/#_#g')
+        echo "HTML coverage report: file://${PWD}/coverage_reports/${COVERAGE_DATE}_${COVERAGE_BRANCH}/index.html"
