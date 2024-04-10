@@ -22,14 +22,11 @@ jobs:
       run: |
         coverage run manage.py test
         coverage report
-        COVERAGE_DATE=$(date +%Y%m%d)
-        COVERAGE_BRANCH=$(echo ${{ github.ref_name }})
-        mkdir -p coverage_reports
-        coverage html -d coverage_reports/
+        coverage html
 
     - name: Archive coverage HTML report
       uses: actions/upload-artifact@v4
       id: artifact-upload-step
       with:
-        name: coverage-report-${{ env.COVERAGE_DATE }}-${{ env.COVERAGE_BRANCH }}
+        name: coverage-report
         path: coverage_reports/
