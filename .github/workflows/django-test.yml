@@ -30,10 +30,7 @@ jobs:
     - name: Archive coverage HTML report
       uses: actions/upload-artifact@v2
       with:
-        run: |
-          COVERAGE_DATE=$(date +%Y%m%d)
-          COVERAGE_BRANCH=$(echo ${GITHUB_REF#refs/heads/} | sed 's#/#_#g')
-        name: coverage-report-${COVERAGE_DATE}-${COVERAGE_BRANCH}
+        name: coverage-report-${{ env.COVERAGE_DATE }}-${{ env.COVERAGE_BRANCH }}
         path: coverage_reports/
     
     - name: Output HTML report link
