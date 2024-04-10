@@ -43,4 +43,4 @@ jobs:
         COVERAGE_DATE=$(date +%Y%m%d)
         COVERAGE_BRANCH=$(echo ${GITHUB_REF#refs/heads/} | sed 's#/#_#g')
         echo "::set-output name=COVERAGE_REPORT_LINK::file://${PWD}/coverage_reports/${COVERAGE_DATE}_${COVERAGE_BRANCH}/index.html"
-        echo "HTML coverage report: \e]8;;${COVERAGE_REPORT_LINK}\e\\Click here\e]8;;\e\\"
+        echo "HTML coverage report: [Click here](file://${PWD}/coverage_reports/${COVERAGE_DATE}_${COVERAGE_BRANCH}/index.html)"
