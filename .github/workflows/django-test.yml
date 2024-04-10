@@ -27,14 +27,12 @@ jobs:
         mkdir -p coverage_reports
         coverage html -d coverage_reports/
 
-    - name: Debug
-      run: |
-        echo "COVERAGE_DATE: $COVERAGE_DATE"
-        echo "COVERAGE_BRANCH: $COVERAGE_BRANCH"
-
     - name: Archive coverage HTML report
       uses: actions/upload-artifact@v2
       with:
+        run: |
+          COVERAGE_DATE=$(date +%Y%m%d)
+          COVERAGE_BRANCH=$(echo ${GITHUB_REF#refs/heads/} | sed 's#/#_#g')
         name: coverage-report-${COVERAGE_DATE}-${COVERAGE_BRANCH}
         path: coverage_reports/
     
