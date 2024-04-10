@@ -29,4 +29,3 @@ jobs:
       id: artifact-upload-step
       with:
         name: coverage-report
-        path: coverage_reports/
